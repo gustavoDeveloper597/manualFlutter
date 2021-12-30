@@ -1,1 +1,43 @@
 
+//listas basicas
+
+import 'package:flutter/material.dart';
+
+class Listas1Screen extends StatelessWidget {
+  List<Map<String, dynamic>> animales = [
+    {'name': 'Toro', 'color': 'blanco,negro'},
+    {'name': 'Vaca', 'color': 'blanco,negro'},
+    {'name': 'Caballo', 'color': 'negro'}
+  ];
+
+  ListTile barrerAnimales(Map<String, dynamic> animal) {
+//    Usa listTitle como un li de html que permite formar los items de la lista en general
+    return ListTile(
+      leading: Icon(Icons.animation), //--------------icono a la derecha puede ser cualquier widget
+      title:Text("mi ${animal['name']!} es ${animal['color']}"), //------------un widget que representa el texto
+      trailing: Icon(Icons.arrow_right),//--- widget que se coloca en la derecha 
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("List view 1"),
+        ),
+        body: Container(
+          child:
+          ListView( //--------------------es el widget que representa la lista
+            children: [
+              ...animales.map((animal) => this.barrerAnimales(animal)).toList(), //----------recibe una lista en este caso  ... saca los items del array
+              Divider(), //-------------------permite crear una linea divisora
+              Text('Hola mundo'),
+              Divider()
+            ],
+
+
+          ),
+        ));
+  }
+}
