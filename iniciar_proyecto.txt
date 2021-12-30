@@ -1,0 +1,4 @@
+Puedes hacerlo mediante comando o por tu editor 
+
+si deseas con el editor necesitas usar android studio e instalar algunos plugis para que puedas
+usar flutter y simplemente creas un nuevo proyecto o bien por comando: flutter create my_app
