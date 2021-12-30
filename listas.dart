@@ -41,3 +41,60 @@ class Listas1Screen extends StatelessWidget {
         ));
   }
 }
+
+//listas con separador 
+import 'package:flutter/material.dart';
+
+class Listas2Screen extends StatelessWidget {
+  List<Map<String, dynamic>> animales = [
+    {'name': 'Paloma', 'color': 'blanco,negro'},
+    {'name': 'Gaviota', 'color': 'blanco'},
+    {'name': 'Canario', 'color': 'amarillo,blanco'}
+  ];
+
+  ListTile barrerAnimales(Map<String, dynamic> animal) {
+    print(animal);
+    return ListTile(
+      leading: Icon(Icons.animation),
+      title: Text("mi ${animal['name']!} es ${animal['color']}"),
+      trailing: Icon(
+        Icons.arrow_right,
+        color: Colors.pink,
+      ),
+      onTap: () {
+        print(animal);
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("List view 2"),
+        // elevation: 20,
+        // backgroundColor: Colors.greenAccent,
+      ),
+      body: Container(
+          child: ListView.separated(
+              itemBuilder: (context, index) {
+                // return Text("${animales[index]['name']} es ${animales[index]['color']}");
+                return this.barrerAnimales(animales[index]);
+              },
+              //_ en parametro es no lo usare
+              separatorBuilder: (context, index) {
+                return Divider();
+              },
+              itemCount: animales.length)
+
+          // ListTile(
+          //   leading: Icon(Icons.animation),
+          //   title: Text("Caballo"),
+          // )
+
+          ),
+    );
+  }
+}
+
