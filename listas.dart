@@ -53,7 +53,6 @@ class Listas2Screen extends StatelessWidget {
   ];
 
   ListTile barrerAnimales(Map<String, dynamic> animal) {
-    print(animal);
     return ListTile(
       leading: Icon(Icons.animation),
       title: Text("mi ${animal['name']!} es ${animal['color']}"),
@@ -79,20 +78,12 @@ class Listas2Screen extends StatelessWidget {
       body: Container(
           child: ListView.separated(
               itemBuilder: (context, index) {
-                // return Text("${animales[index]['name']} es ${animales[index]['color']}");
                 return this.barrerAnimales(animales[index]);
               },
-              //_ en parametro es no lo usare
-              separatorBuilder: (context, index) {
+              separatorBuilder: (context, index) { //(_._) si no deseo usar los parametros
                 return Divider();
               },
               itemCount: animales.length)
-
-          // ListTile(
-          //   leading: Icon(Icons.animation),
-          //   title: Text("Caballo"),
-          // )
-
           ),
     );
   }
